@@ -1,31 +1,79 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@*You must get the following information from the user:  First Name, Last Name, Email, DOB, Car Year, Car Make, Car Model, DUI, speeding tickets, Full coverage or liability
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+Start with a base of $50 / month.
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+If the user is under 25, add $25. If the user is under 18, add $100. If the user is over 100, add $25.
+
+If the car's year is before 2000, add $25 to the monthly total.
+
+If the car's year is after 2015, add $25 to the monthly total.
+
+If the car's Make is a Porsche, add $25 to the price.
+
+If the car's Make is a Porsche and its model is a 911 Carrera, add an additional $25 to the price.
+
+Add $10 to the monthly total for every speeding ticket the user has.
+
+If the user has ever had a DUI, add 25% to the total.
+
+If it's full coverage, add 50% to the total.
+
+There must also be an Admin view for a site administrator. This page must:
+Show all quotes issued, along with the user's first name, last name, and email address.*@
+
+<div class="row no-gutters m-3">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h2 class="m-0">Welcome to Tony Gunk's World of Insurance!</h2>
+            <h4 class="m-0">Enter the information below for a quote</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Signup", "Home", FormMethod.Post))
+            {
+                <div class="row">
+                    @*removed "no-gutters" to provide spacing*@
+                    <div class="form-group col-md-6">
+                        <input name="FirstName" type="text" class="form-control" placeholder="First Name" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input name="LastName" type="text" class="form-control" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="EmailAddress" type="email" class="form-control" placeholder="Email Address" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input name="Age" type="number" class="form-control" placeholder="Age" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input name="CarYear" type="number" class="form-control" placeholder="Car Year" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input name="CarMake" type="text" class="form-control" placeholder="Car Make" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input name="CarModel" type="text" class="form-control" placeholder="Car Model" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input name="DUI" type="text" class="form-control" placeholder="DUI ?  (yes/no)" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input name="SpeedingTickets" type="number" class="form-control" placeholder="How many speeding tickets ?" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="Coverage" type="text" class="form-control" placeholder="Full Coverage or Liability?" />
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                </div>
+            }
+        </div>
+        <div class="card-header text-center">
+            <h2 class="m-0">Your quote is : </h2>
+            @ {
+            Layout = null;
+            
+            string FinalQuote = HomeController.RunningTotal.ToString();
+            }
+            @*<h4 class="m-0">@FinalQuote</h4>*@
+        </div>
     </div>
 </div>

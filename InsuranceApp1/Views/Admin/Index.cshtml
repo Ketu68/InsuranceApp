@@ -1,0 +1,113 @@
+﻿@using InsuranceApp1.ViewModels
+@model List<SignupVm>
+
+<div class="row no-gutters m-3">
+    <div class="card col-sm-8 col-md-10 col-lg-12 mx-auto shadow">
+        <div class="card-header text-center">
+            <h4 class="m-0">Insurance Quote Requesters</h4>
+        </div>
+        <div class="card-header text-left">
+            <div class="row mb-0">
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        FirstName
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        LastName
+                    </h5>
+                </div>
+                <div class="col-2">
+                    <h5 class="m-0 text-black-50">
+                        Email Address
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        Age
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        Year
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        Make
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        Model
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        DUI
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        Tickets
+                    </h5>
+                </div>
+                <div class="col-1">
+                    <h5 class="m-0 text-black-50">
+                        Coverage
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            @foreach (var signup in Model)
+            {
+                using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
+                {
+                    <input type="hidden" name="Id" value="@signup.Id" />
+                    <div class="row mb-3">
+                        <div class="col-1">
+                            @signup.FirstName
+                        </div>
+                        <div class="col-1">
+                            @signup.LastName
+                        </div>
+                        <div class="col-2">
+                            @signup.EmailAddress
+                        </div>
+                        <div class="col-1">
+                            @signup.Age
+                        </div>
+                        <div class="col-1">
+                            @signup.CarYear
+                        </div>
+                        <div class="col-1">
+                            @signup.CarMake
+                        </div>
+                        <div class="col-1">
+                            @signup.CarModel
+                        </div>
+                        <div class="col-1">
+                            @signup.DUI
+                        </div>
+                        <div class="col-1">
+                            @signup.SpeedingTickets
+                        </div>
+                        <div class="col-1">
+                            @signup.Coverage
+                        </div>
+                        <div class="col-1">
+                            <button type="submit" class="btn btn-danger btn-block">
+                                Unsubscribe
+                            </button>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+

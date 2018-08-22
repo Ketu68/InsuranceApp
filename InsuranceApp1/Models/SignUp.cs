@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InsuranceApp1
+namespace InsuranceApp1.Models
 {
     using System;
     using System.Collections.Generic;

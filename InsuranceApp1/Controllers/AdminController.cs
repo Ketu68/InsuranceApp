@@ -12,7 +12,7 @@ namespace InsuranceApp1.Controllers
     {
         public ActionResult Index()
         {
-            using (InsuranceEntities4 db = new InsuranceEntities4())
+            using (InsuranceEntities5 db = new InsuranceEntities5())
             {
                 var signups = (from c in db.Insurances
                                where c.Removed == null
@@ -42,7 +42,7 @@ namespace InsuranceApp1.Controllers
         }
         public ActionResult Unsubscribe(int Id)
         {
-            using (InsuranceEntities4 db = new InsuranceEntities4())
+            using (InsuranceEntities5 db = new InsuranceEntities5())
             {
                 var signup = db.Insurances.Find(Id);
                 signup.Removed = DateTime.Now;

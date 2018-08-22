@@ -13,10 +13,10 @@ namespace InsuranceApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InsuranceEntities4 : DbContext
+    public partial class InsuranceEntities5 : DbContext
     {
-        public InsuranceEntities4()
-            : base("name=InsuranceEntities4")
+        public InsuranceEntities5()
+            : base("name=InsuranceEntities5")
         {
         }
     
@@ -26,6 +26,5 @@ namespace InsuranceApp1
         }
     
         public virtual DbSet<Insurance> Insurances { get; set; }
-        public virtual DbSet<SignUp> SignUps { get; set; }
     }
 }

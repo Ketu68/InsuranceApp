@@ -1,25 +1,25 @@
 ﻿@*You must get the following information from the user:  First Name, Last Name, Email, DOB, Car Year, Car Make, Car Model, DUI, speeding tickets, Full coverage or liability
 
-Start with a base of $50 / month.
+    Start with a base of $50 / month.
 
-If the user is under 25, add $25. If the user is under 18, add $100. If the user is over 100, add $25.
+    If the user is under 25, add $25. If the user is under 18, add $100. If the user is over 100, add $25.
 
-If the car's year is before 2000, add $25 to the monthly total.
+    If the car's year is before 2000, add $25 to the monthly total.
 
-If the car's year is after 2015, add $25 to the monthly total.
+    If the car's year is after 2015, add $25 to the monthly total.
 
-If the car's Make is a Porsche, add $25 to the price.
+    If the car's Make is a Porsche, add $25 to the price.
 
-If the car's Make is a Porsche and its model is a 911 Carrera, add an additional $25 to the price.
+    If the car's Make is a Porsche and its model is a 911 Carrera, add an additional $25 to the price.
 
-Add $10 to the monthly total for every speeding ticket the user has.
+    Add $10 to the monthly total for every speeding ticket the user has.
 
-If the user has ever had a DUI, add 25% to the total.
+    If the user has ever had a DUI, add 25% to the total.
 
-If it's full coverage, add 50% to the total.
+    If it's full coverage, add 50% to the total.
 
-There must also be an Admin view for a site administrator. This page must:
-Show all quotes issued, along with the user's first name, last name, and email address.*@
+    There must also be an Admin view for a site administrator. This page must:
+    Show all quotes issued, along with the user's first name, last name, and email address.*@
 
 <div class="row no-gutters m-3">
     <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
@@ -68,12 +68,10 @@ Show all quotes issued, along with the user's first name, last name, and email a
         </div>
         <div class="card-header text-center">
             <h2 class="m-0">Your quote is : </h2>
-            @ {
-            Layout = null;
-            
-            string FinalQuote = HomeController.RunningTotal.ToString();
-            }
-            @*<h4 class="m-0">@FinalQuote</h4>*@
         </div>
     </div>
 </div>
+
+@*<dd>
+    @Html.DisplayFor(model => model.Quote)       /*  Returns error Expression tree may not contain a dynamic operation
+</dd>*@

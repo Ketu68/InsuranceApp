@@ -46,7 +46,7 @@ namespace InsuranceApp1.Controllers
             }
             else
             {
-                using (InsuranceEntities4 db = new InsuranceEntities4())
+                using (InsuranceEntities5 db = new InsuranceEntities5())
                 {
                     var signup = new Insurance();
                     signup.FirstName = firstName;

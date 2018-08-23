@@ -21,6 +21,9 @@
     There must also be an Admin view for a site administrator. This page must:
     Show all quotes issued, along with the user's first name, last name, and email address.*@
 
+@using InsuranceApp1.ViewModels
+@model List<SignupVm>
+
 <div class="row no-gutters m-3">
     <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
         <div class="card-header text-center">
@@ -67,11 +70,11 @@
             }
         </div>
         <div class="card-header text-center">
-            <h2 class="m-0">Your quote is : </h2>
+            @*<h2 class="m-0">Your quote is : @(int)SignupVm.Quote</h2>*@
         </div>
     </div>
 </div>
 
 @*<dd>
-    @Html.DisplayFor(model => model.Quote)       /*  Returns error Expression tree may not contain a dynamic operation
-</dd>*@
+        @Html.DisplayFor(model => model.Quote)       /*  Returns error Expression tree may not contain a dynamic operation
+    </dd>*@

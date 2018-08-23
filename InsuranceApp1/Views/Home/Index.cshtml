@@ -22,7 +22,9 @@
     Show all quotes issued, along with the user's first name, last name, and email address.*@
 
 @using InsuranceApp1.ViewModels
-@model List<SignupVm>
+@using InsuranceApp1.Models
+@*@model List<SignupVm>*@
+@model InsuranceApp1.Models.InsuranceSignUp
 
 <div class="row no-gutters m-3">
     <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
@@ -70,11 +72,12 @@
             }
         </div>
         <div class="card-header text-center">
-            @*<h2 class="m-0">Your quote is : @(int)SignupVm.Quote</h2>*@
+            <h2 class="m-0">Your quote is : </h2>
+            <p>@Html.DisplayFor(model => Model.Quote)</p>
         </div>
     </div>
 </div>
 
-@*<dd>
-        @Html.DisplayFor(model => model.Quote)       /*  Returns error Expression tree may not contain a dynamic operation
-    </dd>*@
+<dd>
+    @Html.DisplayFor(model => Model.Quote)
+</dd>

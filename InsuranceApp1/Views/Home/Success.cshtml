@@ -2,16 +2,12 @@
 @*@model List<SignupVm>*@
 @model InsuranceApp1.Models.InsuranceSignUp
 
-<div class="row no-gutters m-3">
+<div class="row no-gutters mb-3">
     <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
         <div class="card-header text-center">
-            <h1 class="m-0">Your quote is : </h1>
-            <span>I want to write </span>
-            <p>@Html.DisplayFor(model => Model.Quote)</p>
+            <h1 class="m-0">Your quote is :  $@ViewBag.Name a month</h1>
+            <h4 class="m-0">[Hit the back button in your browser for another quote]</h4>
         </div>
     </div>
 </div>
 
-@*<dd>
-    @Html.DisplayFor(model => Model.Quote)
-</dd>*@

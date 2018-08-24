@@ -70,6 +70,8 @@ namespace InsuranceApp1.Controllers
                     if(coverage == "full" || coverage == "full coverage") RunningTotal += (RunningTotal / 2);
                     signup.Quote = RunningTotal;
 
+                    ViewBag.Name = signup.Quote;
+
                     db.Insurances.Add(signup);
                     db.SaveChanges();
                 }
